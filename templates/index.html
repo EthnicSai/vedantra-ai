@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedantra AI Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/vedantra-logo.jpeg') }}" alt="Vedantra Logo" class="logo-img">
+            <span class="logo-text">Vedantra AI</span>
+        </div>
+        <div class="controls">
+            <button class="btn-icon" id="theme-toggle" title="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="btn-icon" id="clear-chat" title="Clear chat">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="chat-container" id="chat">
+        <!-- Messages will appear here -->
+    </div>
+
+    <div class="input-area">
+        <div class="input-container">
+            <textarea id="message-input" placeholder="Message Vedantra AI..." rows="1"></textarea>
+            <div class="model-selector">
+                <button class="model-btn" id="model-btn">
+                    <i class="fas fa-robot"></i>
+                    <span id="model-name">Llama 3</span>
+                </button>
+                <div class="model-menu" id="model-menu">
+                    <div class="model-option active" data-model="llama-3.3-nemotron-super-49b-v1">
+                        <i class="fas fa-brain"></i>
+                        <span>Llama 3</span>
+                        <span class="badge">Default</span>
+                    </div>
+                    <div class="model-option" data-model="deepseek-r1-distill-llama-8b">
+                        <i class="fas fa-search"></i>
+                        <span>DeepSeek</span>
+                    </div>
+                </div>
+            </div>
+            <button class="send-btn" id="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>Message copied!</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
